@@ -8,8 +8,9 @@ const port = process.env.PORT || 3000
 app.use(serve(path.resolve(__dirname, '..', 'client')))
 
 const userRoutes = require('./routes/users')
+const parse = require('koa-bodyparser')
 app.use(userRoutes.routes())
-
+app.use(parse())
 const taskRoutes = require('./routes/tasks')
 app.use(taskRoutes.routes())
 
