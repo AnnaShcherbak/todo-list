@@ -4,7 +4,8 @@ const store = require('../store')
 const router = new Router({ prefix: '/api/tasks' })
 
 router.get('/', async (ctx) => {
-  ctx.status = 501
+  ctx.response.body = await store.listTasks()
+  //ctx.status = 501
 })
 
 router.post('/', async (ctx) => {
